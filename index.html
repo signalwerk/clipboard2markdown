@@ -29,7 +29,7 @@
                 height: 1px;
                 overflow: hidden;
             }
-            #output {
+            #output, #html {
                 border: none;
                 background: transparent;
                 font-family: Consolas, "Liberation Mono", Courier, monospace;
@@ -41,10 +41,15 @@
                 resize: none;
                 width: 100%;
             }
+            #html {
+                min-height: 150px;
+                border: 1px solid #ccc;
+            }
         </style>
     </head>
     <body>
         <div class="container">
+
             <section id="info">
                 <h1>Paste to Markdown</h1>
                 <h2>Instructions</h2>
@@ -54,8 +59,15 @@
                     <li>Paste it into this window (<code>Ctrl+V</code>, or <code>&#8984;+V</code> on Mac)</li>
                     <li>The converted Markdown will appear!</li>
                 </ol>
+
+                <div>
+                    <label for="html">Or past HTML-Code here</label>
+                    <textarea id="html"></textarea>
+                </div>
+
                 <p>The conversion is carried out by <a href="https://github.com/domchristie/turndown">turndown</a>, a Markdown converter written in JavaScript and running locally in the browser.</p>
                 <p>This code is hosted on <a href="https://github.com/signalwerk/clipboard2markdown">github</a>.</p>
+
             </section>
             <div contenteditable="true" id="pastebin"></div>
             <section class="hidden" id="wrapper">

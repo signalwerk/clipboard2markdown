@@ -159,17 +159,39 @@
     var pastebin = document.querySelector('#pastebin');
     var output = document.querySelector('#output');
     var wrapper = document.querySelector('#wrapper');
+    var htmlInput = document.querySelector('#html');
 
     document.addEventListener('keydown', function (event) {
       if (event.ctrlKey || event.metaKey) {
         if (String.fromCharCode(event.which).toLowerCase() === 'v') {
-          pastebin.innerHTML = '';
-          pastebin.focus();
-          info.classList.add('hidden');
-          wrapper.classList.add('hidden');
+
+          var htmlFormHasFocused = (document.activeElement === htmlInput);
+
+          if (!htmlFormHasFocused) {
+            pastebin.innerHTML = '';
+            pastebin.focus();
+            
+            info.classList.add('hidden');
+            wrapper.classList.add('hidden');
+          }
         }
       }
     });
+
+
+    htmlInput.addEventListener('paste', function () {
+      setTimeout(function () {
+        var html = htmlInput.value;
+        var markdown = convert(html);
+        insert(output, markdown);
+        
+        info.classList.add('hidden');
+        wrapper.classList.remove('hidden');
+
+        output.focus();
+        output.select();
+      }, 200);
+  })
 
     pastebin.addEventListener('paste', function () {
       setTimeout(function () {
