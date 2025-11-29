@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paste to Markdown</title>
+    <link
+      href="https://fonts.signalwerk.ch/css/latest/family=Work+Sans:ital,wght@0,100..900;1,100..900.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.signalwerk.ch/css/latest/family=IBM+Plex+Mono:ital,wght@0,400..700;1,400..700.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <h1 class="title">
+          <span class="title-icon">📋</span>
+          Paste to Markdown
+        </h1>
+        <p class="subtitle">Transform HTML into clean, formatted Markdown</p>
+      </header>
+
+      <main class="main">
+        <section class="instructions">
+          <h2 class="section-title">How It Works</h2>
+          <ol class="steps">
+            <li>
+              <span class="step-number">1</span>
+              <span class="step-text"><strong>Copy</strong> any content from a webpage, document, or rich text source</span>
+            </li>
+            <li>
+              <span class="step-number">2</span>
+              <span class="step-text"><strong>Paste</strong> directly into this page — no need to click anywhere first</span>
+            </li>
+            <li>
+              <span class="step-number">3</span>
+              <span class="step-text"><strong>Done!</strong> Your Markdown is ready to copy and use</span>
+            </li>
+          </ol>
+        </section>
+
+        <div class="converter-grid">
+          <section class="panel input-panel">
+            <div class="panel-header">
+              <h3 class="panel-title">HTML Input</h3>
+              <span class="panel-hint">Or paste raw HTML here</span>
+            </div>
+            <textarea
+              id="html-input"
+              class="code-input"
+              placeholder="Paste content here, or simply use your keyboard shortcut anywhere on this page..."
+              spellcheck="false"
+            ></textarea>
+            <div class="panel-actions">
+              <button id="convert-btn" class="btn btn-primary">
+                <span class="btn-icon">→</span>
+                Convert
+              </button>
+              <button id="clear-input-btn" class="btn btn-ghost">Clear</button>
+            </div>
+          </section>
+
+          <section class="panel output-panel">
+            <div class="panel-header">
+              <h3 class="panel-title">Markdown Output</h3>
+              <span id="status" class="status"></span>
+            </div>
+            <textarea
+              id="markdown-output"
+              class="code-output"
+              placeholder="Markdown will appear here..."
+              readonly
+              spellcheck="false"
+            ></textarea>
+            <div class="panel-actions">
+              <button id="copy-btn" class="btn btn-primary" disabled>
+                <span class="btn-icon">⎘</span>
+                Copy Markdown
+              </button>
+              <button id="clear-output-btn" class="btn btn-ghost">Clear</button>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <p>
+          Just paste anywhere on this page — the conversion happens automatically
+        </p>
+      </footer>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+
