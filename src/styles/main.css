@@ -355,6 +355,18 @@ body {
   color: var(--color-text-subtle);
 }
 
+.footer p + p {
+  margin-top: var(--space-xs);
+}
+
+.footer a {
+  color: var(--color-text-subtle);
+}
+
+.footer a:hover {
+  color: var(--color-text);
+}
+
 /* ============================================
    Toast
    ============================================ */
